@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Icon for the website -->
+  <link rel="icon" type="image/x-icon" href="./assets/logo.png" />
   <title>Assem's portfolio</title>
   <!-- Google fonts link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +28,7 @@
           },
           boxShadow: {
             'btnShadow': '6px 6px 0 #03346E',
+            'cardShadow': '0px 0px 0 #000000',
           },
           fontFamily: {
             montserrat: ['Montserrat', 'sans-serif'],
@@ -35,16 +38,18 @@
     }
   </script>
 </head>
-<body class="bg-biege p-0 m-0 font-montserrat scroll-smooth">
+<body class="bg-biege p-0 m-0 font-montserrat scroll-smooth text-biege">
   <!-- start Hire Me pop-up -->
-  <div class="hidden fixed top-0 right-0 w-[100%] h-[100vh] bg-black bg-opacity-50 flex items-center justify-center">
-    <form action="" class="bg-biege w-[450px] h-[450px] flex flex-col gap-3 p-5 rounded-lg">
+  <div class="text-darkPrimary hidden fixed top-0 right-0 w-[100%] h-[100vh] bg-black bg-opacity-50 flex items-center justify-center z-[20]">
+    <form id="contact-form" class="bg-biege w-[450px] h-[450px] flex flex-col gap-3 p-5 rounded-lg">
       <label for="mail">E-Mail:</label>
-      <input type="email" name="mail" id="mail" class="rounded-md ">
+      <input type="email" name="mail" id="mail" class="rounded-md " required>
       <label for="subject">Subject:</label>
       <input type="text" name="subject" id="subject" class="rounded-md">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" class="rounded-md">
       <label for="desc">Details:</label>
-      <textarea name="desc" id="desc" class="h-[150px] w-[100%] rounded-md resize-none"></textarea>
+      <textarea name="desc" id="desc" class="h-[150px] w-[100%] rounded-md resize-none" required></textarea>
       <div class="flex justify-end gap-5">
         <button id="send-btn" class="w-[100px] h-[30px] bg-darkPrimary text-biege rounded-lg self-end mt-5 hover:bg-biege hover:border-2 border-darkPrimary hover:text-darkPrimary duration-300">
           Send
@@ -57,53 +62,55 @@
   </div>
   <!-- end Hire Me pop-up -->
   <!-- Start nav bar -->
-  <nav class="bg-darkPrimary flex justify-between px-[100px] sticky top-0 h-[50px]">
+  <nav class="bg-darkPrimary flex justify-between px-[100px] sticky top-0 h-[50px] z-10">
     <!-- image -->
-    <img src="./assets/logo.svg" alt="Assem Portfolio's Logo" class="h-[40px] self-center" />
+    <img src="./assets/logo.png" alt="Assem Portfolio's Logo" class="h-[40px] self-center" />
     <!-- navigators -->
     <i class="fa-solid fa-bars text-biege self-center lg:hidden"></i>
-    <ul class="p-5 text-biege items-center gap-10 absolute hidden flex flex-col lg:flex lg:flex-row lg:static top-[50px] right-0 bg-darkPrimary">
+    <ul class="cursor-pointer p-5 text-biege items-center gap-10 absolute hidden flex flex-col lg:flex lg:flex-row lg:static top-[50px] right-0 bg-darkPrimary">
       <li class="transform transition duration-300 ease-in-out hover:scale-[120%]"><a href="#home">Home</a></li>
       <li class="transform transition duration-300 ease-in-out hover:scale-[120%]"><a href="#about">About Me</a></li>
-      <li class="transform transition duration-300 ease-in-out hover:scale-[120%]"><a href="#contact">Contact Me</a></li>
+      <li  class="transform transition duration-300 ease-in-out hover:scale-[120%]"><a id="contact" >Contact Me</a></li>
     </ul>
   </nav>
   <!-- end nav bar -->
-  <main class="px-[50px] lg:px-[150px]">
+  <main class="px-[50px] lg:px-[150px] flex flex-col gap-20 pb-20">
     <!-- start header -->
     <header id="home" class="flex flex-col lg:flex-row items-center justify-between gap-[35px] py-[100px]">
       <!-- text part -->
       <div class="flex flex-col gap-5 text-center lg:text-left items-center lg:items-start max-w-xl">
         <!-- Heading -->
-        <h1 class="text-[48px]/[1] lg:text-[64px] font-extrabold">
+        <h1 class="text-[48px]/[1] lg:text-[64px] text-darkPrimary font-extrabold">
           Hello, <br>
           I'm Assem
         </h1>
-        <span class="text-[25px] font-semibold">Front-End Developer</span>
+        <span class="text-[25px] text-darkPrimary font-semibold">Front-End Developer</span>
         <!-- Buttons -->
         <div class="flex justify-center lg:justify-start gap-[19px] pt-4">
           <button id='hire-me-btn' class="w-[142px] h-[50px] text-[18px] bg-darkPrimary text-biege rounded-xl shadow-btnShadow hover:bg-biege hover:border-2 border-darkPrimary hover:text-darkPrimary duration-300">
             Hire Me
           </button>
           <button class="w-[202px] h-[50px] text-[18px] bg-darkPrimary text-biege rounded-xl shadow-btnShadow hover:bg-biege hover:border-2 border-darkPrimary hover:text-darkPrimary duration-300">
-            <a href="../assets/AssemCV.pdf">Download CV</a>
+            <a href="https://drive.google.com/file/d/1ROk9ZaUOUkbhleXtXFHj7PDh8DIx9v30/view?usp=drive_link" target="_blank">Download CV</a>
           </button>
         </div>
       </div>
       <!-- image side-->
       <figure>
-        <img src="./assets/avatar.svg" alt="Avatar picture" class="w-[296px] lg:w-[511px]">
+        <img src="./assets/avatarB.svg" alt="Avatar picture" class="w-[296px] lg:w-[511px] rounded-lg">
       </figure>
     </header>
     <!-- End header -->
     <!-- start About me section -->
     <section id="about" class="flex flex-col items-center lg:flex-row bg-lblue rounded-3xl gap-10 p-10 mx-auto">
-      <figure>
-        <img src="./assets/avatar.svg" alt="Avatar" class="w-[296px] lg:w-[1500px]">
+      <figure class="relative">
+        <!-- photo shadow -->
+        <div class="w-[100%] h-[100%] rounded-lg lg:w- bg-black absolute"></div>
+        <img src="./assets/avatarBwithoutshadow.svg" alt="Avatar" class="w-[296px] lg:w-[1500px] border-2 rounded-lg border-darkPrimary transform transition duration-300 ease-in-out lg:hover:translate-y-[-10px] lg:hover:translate-x-[-10px]">
       </figure>
       <div>
         <h2 class="text-[48px] font-bold text-center lg:text-left">About Me!</h2>
-        <p class="text-[14px] text-center lg:text-left">
+        <p class="text-[14px] text-center lg:text-left font-semibold">
           Hi, I’m Assem, a passionate Front-End Developer with a focus on building clean, responsive, and user-friendly web interfaces using React. I enjoy turning ideas into interactive, functional websites and applications that look great on any device.
           My core skills include HTML, CSS, JavaScript, TypeScript, Bootstrap, Tailwind CSS, and React. I'm also familiar with the basics of SQL and Express.js, giving me a broader understanding of full-stack development.
           I’m always learning and looking to improve—not just in code, but in solving real-world problems through design and functionality. Whether it’s working on a personal project or collaborating with a team, I love the process of building things that people can actually use.
@@ -111,8 +118,60 @@
       </div>
     </section>
     <!-- end About me section -->
+    <!-- Start services -->
+    <section class="flex flex-col items-center bg-lblue rounded-3xl gap-10 p-10">
+      <h2>My Services</h2>
+      <div class="flex flex-col gap-10 lg:flex-row lg:gap-20 text-center">
+        <div class="flex flex-col gap-5 rounded-lg justify-center items-center"> 
+          <img src="./assets/swd.jpg" alt="Software Development Image" class="w-[400px]  rounded-lg">
+          <h3 class="font-bold">Crafting a New Software</h3>
+          <p class="font-semibold">
+            I specialize in building modern, responsive web applications using React. Whether you're starting a brand-new project or looking to bring a fresh,
+            interactive experience to your users, I can help turn your ideas into reality with clean, maintainable, 
+            and scalable front-end code. From initial UI/UX planning to the final deployment,
+            I ensure each project is crafted with performance, accessibility, and user engagement in mind.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5 rounded-lg justify-center items-center">
+          <img src="./assets/swMaintenance.jpg" alt="Software Maintenance Image" class="w-[400px] rounded-lg">
+          <h3 class="font-bold">Ongoing Maintenance & Support</h3>
+          <p class="font-semibold"> 
+            A great application doesn't end at launch—it evolves. I offer ongoing maintenance and support services to keep your React-based applications up-to-date, secure, and fully functional. This includes performance optimization, bug fixes, updates for dependencies, 
+            and UI improvements as your needs grow. Whether it's small tweaks or long-term care, 
+            I help your software stay reliable and relevant.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- End services -->
   </main>
+  <!-- Start footer -->
+  <footer class="bg-darkPrimary text-biege text-center p-5">
+    <!-- Copyrights -->
+    <div>
+      &copy; 2025 Assem Portfolio. All rights reserved.
+    </div>
+    <!-- Links icon -->
+    <div class="flex justify-center gap-5 pt-3 text-[25px]">
+      <!-- Github icon -->
+      <a href="https://github.com/Assem-Elmasri" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/assem-elmasry-344b45231/"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </footer>
+  <!-- End footer -->
   <!-- script file -->
+</script>
+<script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init({
+      publicKey: "2eE0w3ALccfqB6cAn",
+    });
+  })();
+</script>
   <script src="./script.js"></script>
 </body>
 </html>
